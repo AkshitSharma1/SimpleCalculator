@@ -5,6 +5,7 @@
  */
 package calculator;
 
+import java.awt.Font;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -118,6 +119,12 @@ public class Controller implements Initializable {
         op = "MUL";
         displayText();
     }
+    
+    @FXML
+    void bugs() {
+        output.setText("3 bugs known so far.");
+       
+                }
 
     @FXML
     void nine(ActionEvent event) {
@@ -156,7 +163,10 @@ public class Controller implements Initializable {
     void two(ActionEvent event) {
         addText("2");
     }
-
+    @FXML
+    void exit() {
+        System.exit(0);
+    }
     @FXML
     void zero(ActionEvent event) {
         addText("0");
