@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keypressed" prefHeight="453.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.Controller">
    <children>
       <TextArea disable="true" editable="false" prefHeight="140.0" prefWidth="352.0" />
       <Text fx:id="output" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="352.0000034570694">
@@ -92,7 +92,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" text="Known Bugs" onAction="#bugs"/>
+              <MenuItem mnemonicParsing="false" onAction="#bugs" text="Known Bugs" />
             </items>
           </Menu>
         </menus>

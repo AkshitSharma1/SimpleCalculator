@@ -12,6 +12,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 
 /**
@@ -43,7 +47,7 @@ public class Controller implements Initializable {
         output.setText(value);
     }
     @FXML
-    void divide(ActionEvent event) {
+    void divide() {
         value = value.concat(" / ");
         position = true;
         op = "DIV";
@@ -51,12 +55,12 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void eight(ActionEvent event) {
+    void eight() {
       addText("8");
     }
 
     @FXML
-    void equal(ActionEvent event) {
+    void equal() {
         if(n1==0&&n2==0) {
             output.setText("ERROR: No value");
         }
@@ -95,17 +99,17 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void five(ActionEvent event) {
+    void five() {
     addText("5");
     }
 
     @FXML
-    void four(ActionEvent event) {
+    void four() {
     addText("4");
     }
 
     @FXML
-    void minus(ActionEvent event) {
+    void minus() {
         value = value.concat(" - ");
         position = true;
         op = "SUB";
@@ -113,7 +117,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void multiply(ActionEvent event) {
+    void multiply() {
         value = value.concat(" X ");
         position = true;
         op = "MUL";
@@ -127,17 +131,17 @@ public class Controller implements Initializable {
                 }
 
     @FXML
-    void nine(ActionEvent event) {
+    void nine() {
         addText("9");
     }
 
     @FXML
-    void one(ActionEvent event) {
+    void one() {
         addText("1");
     }
 
     @FXML
-    void plus(ActionEvent event) {
+    void plus() {
     value = value.concat(" + ");
         position = true;
         op = "ADD";
@@ -145,22 +149,22 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void seven(ActionEvent event) {
+    void seven() {
         addText("7");
     }
 
     @FXML
-    void six(ActionEvent event) {
+    void six() {
         addText("6");
     }
 
     @FXML
-    void three(ActionEvent event) {
+    void three() {
         addText("3");
     }
 
     @FXML
-    void two(ActionEvent event) {
+    void two() {
         addText("2");
     }
     @FXML
@@ -168,10 +172,63 @@ public class Controller implements Initializable {
         System.exit(0);
     }
     @FXML
-    void zero(ActionEvent event) {
+    void zero() {
         addText("0");
     }
+    @FXML
+    void keypressed(KeyEvent event) {
+     
+        if (event.getCode() == KeyCode.DIGIT8 && event.isShiftDown()) { 
+            multiply(); } else {
     
+        switch (event.getCode()) {
+            case DIGIT1:
+                one();
+                break;
+            case DIGIT0:
+                zero();
+                break;
+            case DIGIT2:
+                two();
+                break;
+            case DIGIT3:
+                three();
+                break;
+            case DIGIT4:
+                four();
+                break;
+            case DIGIT5:
+                five();
+                break;
+            case DIGIT6:
+                six();
+                break;
+            case DIGIT7:
+                seven();
+                break;
+            case DIGIT8:
+                eight();
+                break;
+            case DIGIT9:
+                nine();
+                break;
+            case EQUALS:
+                plus();
+                break;
+            case ENTER:
+                equal();
+                break;
+            case MINUS:
+                minus();
+                break;
+           
+            case SLASH:
+                divide();
+                break;
+        }
+          // 8 and 9      
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
